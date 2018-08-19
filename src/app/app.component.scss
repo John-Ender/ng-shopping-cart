@@ -1,0 +1,19 @@
+
+.header {
+    height: 54px;
+    background: #3A6178;
+}
+
+.shopping-cart-button {
+    margin-right: 20px;
+
+    .shopping-cart-icon {
+        color: #fafafa;
+    }
+}
+
+
+mat-sidenav {
+    width: 50%;
+    min-width: 350px;
+}
