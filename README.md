@@ -4,6 +4,8 @@ This project was generated with [Angular CLI](https://github.com/angular/angular
 
 ![image](https://user-images.githubusercontent.com/4483110/44335089-99c4d800-a430-11e8-8a2f-4b48be7998ae.png)
 
+![image](https://user-images.githubusercontent.com/4483110/44335395-9120d180-a431-11e8-9b04-fcf6f6071d95.png)
+
 ### Node
 Use the following runtime dependencies.  Use NVM (Node version manager) to use different versions of node 
 * node `v8.2.x`
