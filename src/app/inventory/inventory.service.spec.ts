@@ -1,15 +1,13 @@
-import { TestBed, inject } from '@angular/core/testing';
+import { TestBed, inject, async } from '@angular/core/testing';
 
-import { InventoryItem, InventoryService } from './inventory.service';
+import { InventoryService } from './inventory.service';
 import { MODULES } from './inventory.module';
 
 import * as _ from 'lodash';
-import { Observable, ObservableLike } from 'rxjs';
 
 describe( 'InventoryService', () => {
 
     let inventoryService: InventoryService;
-    let mockbackend;
 
     beforeEach( () => {
         TestBed.configureTestingModule( {
@@ -28,6 +26,13 @@ describe( 'InventoryService', () => {
     it( 'should be created', () => {
         expect( inventoryService ).toBeTruthy();
     } );
+
+    it('should fail gracefully when data is not found', async(() => {
+       inventoryService['fetchInventory']('data/').subscribe((value) => {
+           expect(value).toBeTruthy();
+           expect(value).toEqual([]);
+       });
+    }));
 
     it( 'should contain an inventory', () => {
         expect(inventoryService.inventory).toBeTruthy();
