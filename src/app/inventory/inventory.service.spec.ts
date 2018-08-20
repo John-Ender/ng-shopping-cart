@@ -1,15 +1,44 @@
 import { TestBed, inject } from '@angular/core/testing';
 
-import { InventoryService } from './inventory.service';
+import { InventoryItem, InventoryService } from './inventory.service';
+import { MODULES } from './inventory.module';
 
-describe('InventoryService', () => {
-  beforeEach(() => {
-    TestBed.configureTestingModule({
-      providers: [InventoryService]
-    });
-  });
+import * as _ from 'lodash';
+import { Observable, ObservableLike } from 'rxjs';
 
-  it('should be created', inject([InventoryService], (service: InventoryService) => {
-    expect(service).toBeTruthy();
-  }));
-});
+describe( 'InventoryService', () => {
+
+    let inventoryService: InventoryService;
+    let mockbackend;
+
+    beforeEach( () => {
+        TestBed.configureTestingModule( {
+            imports: MODULES,
+            providers: [
+                InventoryService,
+            ]
+        } );
+    } );
+
+    beforeEach( inject( [ InventoryService ], ( service ) => {
+        inventoryService = service;
+    } ) );
+
+    // Specs
+    it( 'should be created', () => {
+        expect( inventoryService ).toBeTruthy();
+    } );
+
+    it( 'should contain an inventory', () => {
+        expect(inventoryService.inventory).toBeTruthy();
+    } );
+
+    it( 'should return inventory data', () => {
+        inventoryService.inventory.subscribe( ( inventory ) => {
+            const description = 'imported bag of Vanilla-Hazelnut Coffee';
+            expect(_.find(inventory, (item) => item._id === 3)).toBeTruthy();
+            expect(_.find(inventory, (item) => item.description === description)).toBeTruthy();
+            expect(inventory.length).toEqual(9);
+        } );
+    } );
+} );

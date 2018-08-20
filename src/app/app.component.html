@@ -1,10 +1,12 @@
 <div fxLayout="column" fxFlexFill>
     <div fxLayout="row" fxLayoutAlign="start, center" class="header">
+        <h3 class="title">Shopping Cart Demo</h3>
         <div fxFlex="1 1 auto"></div>
-        <button mat-icon-button
+        <button mat-button
                 fxFlexAlign="center"
                 class="shopping-cart-button"
                 (click)="sidenav.toggle()">
+            {{ 'Cart' }}
             <mat-icon [matBadge]="(cartService.cart | async)?.count"
                       matBadgeColor="warn"
                       class="shopping-cart-icon">

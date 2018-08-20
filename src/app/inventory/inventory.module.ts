@@ -8,9 +8,8 @@ import {MatTableModule} from '@angular/material/table';
 
 import { InventoryRoutingModule } from './inventory-routing.module';
 
-const MODULES = [
+export const MODULES = [
     CommonModule,
-    InventoryRoutingModule,
     HttpClientModule,
     FlexLayoutModule,
     MatButtonModule,
@@ -24,15 +23,11 @@ const COMPONENTS = [
     InventoryListComponent,
 ];
 
-const SERVICES = [];
-
 export { InventoryItem } from './inventory.service';
 
-
 @NgModule({
-  imports: MODULES,
+  imports: [...MODULES, InventoryRoutingModule],
   declarations: COMPONENTS,
-  exports: COMPONENTS,
-  providers: SERVICES
+  exports: COMPONENTS
 })
 export class InventoryModule { }

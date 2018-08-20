@@ -26,9 +26,6 @@ export class CartService {
     private cartSubject: ReplaySubject<ShoppingCart> = new ReplaySubject<ShoppingCart>( 1 );
     cart: Observable<ShoppingCart> = this.cartSubject.asObservable();
 
-    constructor() {
-    }
-
     /**
      * Add a number of a specific item to the cart.
      * @param {Item} item - The item to add to the cart, must be an item object retrieved from the inventory.
@@ -62,7 +59,7 @@ export class CartService {
      * @param {Item} item - The item to removed from the cart, must be an item object retrieved from the inventory.
      * @param {number} amount - The amount of the item to be removed
      */
-    removeItem( item: ShoppingCartItem, amount: number = 1 ) {
+    removeItem( item: ShoppingCartItem | InventoryItem, amount: number = 1 ) {
         if ( amount <= 0 ) return;
         // Retrieve the item if it is currently in the cart, _.find returns undefined for non-existent values
         let listItem = _.find( this.list, ( value ) => value._id === item._id );

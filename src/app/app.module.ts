@@ -11,7 +11,7 @@ import { AppRoutingModule } from './app-routing.module';
 import { CartModule } from './cart/cart.module';
 import { InventoryModule } from './inventory/inventory.module';
 
-const MODULES = [
+export const MODULES = [
     BrowserModule,
     BrowserAnimationsModule,
     FlexLayoutModule,
@@ -32,8 +32,8 @@ const COMPONENTS = [
 ];
 
 @NgModule( {
+    imports: [...MODULES, ],
     declarations: COMPONENTS,
-    imports: MODULES,
     providers: [],
     bootstrap: [ AppComponent ]
 } )

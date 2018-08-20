@@ -6,15 +6,17 @@
 
 .shopping-cart-button {
     margin-right: 20px;
+    color: #fafafa;
+}
 
-    .shopping-cart-icon {
-        color: #fafafa;
-    }
+.title {
+    margin-left: 10px;
+    color: #fafafa;
 }
 
 mat-sidenav {
     width: 50%;
     min-width: 350px;
     background: #fafafa;
-    padding: 20px 20px 20px 0px;
+    padding: 0px 20px 20px 0px;
 }
