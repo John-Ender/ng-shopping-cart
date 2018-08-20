@@ -1,0 +1,21 @@
+
+table {
+    width: 100%;
+}
+
+.mat-column-count, .mat-column-actions {
+    width: 120px;
+}
+
+.mat-column-price {
+    width: 80px;
+    padding: 10px 0px;
+}
+
+.mat-raised-button.mat-primary {
+    background-color: #3A6178;
+}
+
+.mat-raised-button.mat-primary[disabled] {
+    background-color: rgba(0,0,0,.12);
+}

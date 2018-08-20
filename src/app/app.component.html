@@ -5,15 +5,16 @@
                 fxFlexAlign="center"
                 class="shopping-cart-button"
                 (click)="sidenav.toggle()">
-            <mat-icon matBadge="20"
+            <mat-icon [matBadge]="(cartService.cart | async)?.count"
                       matBadgeColor="warn"
                       class="shopping-cart-icon">
                 shopping_cart
             </mat-icon>
         </button>
     </div>
-    <mat-sidenav-container fxFlex="1 1 auto">
-        <mat-sidenav #sidenav mode="over" position="end" [(opened)]="opened">
+    <mat-sidenav-container fxLayout="column" fxFlex="1 1 0" fxFlexFill>
+        <mat-sidenav #sidenav mode="side" position="end" [(opened)]="opened">
+            <cart-list></cart-list>
         </mat-sidenav>
 
         <mat-sidenav-content>

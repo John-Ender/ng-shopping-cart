@@ -1,11 +1,14 @@
-import { Component } from '@angular/core';
+import { Component, ChangeDetectionStrategy,  } from '@angular/core';
+import { CartService } from './cart/cart.module';
 
-@Component({
-  selector: 'app-root',
-  templateUrl: './app.component.html',
-  styleUrls: ['./app.component.scss']
-})
+@Component( {
+    selector: 'app-root',
+    templateUrl: './app.component.html',
+    styleUrls: [ './app.component.scss' ],
+    changeDetection: ChangeDetectionStrategy.OnPush
+} )
 export class AppComponent {
-    events: string[] = [];
     opened: boolean;
+
+    constructor( public cartService: CartService ) {}
 }

@@ -1,16 +1,23 @@
-import { Component, OnInit, ChangeDetectionStrategy } from '@angular/core';
+import { Component, OnInit, ChangeDetectionStrategy, OnDestroy } from '@angular/core';
 
-@Component({
-  selector: 'inventory-list',
-  templateUrl: './inventory-list.component.html',
-  styleUrls: ['./inventory-list.component.scss'],
-  changeDetection: ChangeDetectionStrategy.OnPush
-})
-export class InventoryListComponent implements OnInit {
+import { InventoryService } from '../inventory.service';
+import { CartService } from '../../cart/cart.module';
 
-  constructor() { }
+@Component( {
+    selector: 'inventory-list',
+    templateUrl: './inventory-list.component.html',
+    styleUrls: [ './inventory-list.component.scss' ],
+    changeDetection: ChangeDetectionStrategy.OnPush
+} )
+export class InventoryListComponent implements OnInit, OnDestroy {
 
-  ngOnInit() {
-  }
+    displayedColumns = ['description', 'price', 'actions'];
 
+    constructor( public inventoryService: InventoryService,
+                 public cartService: CartService) {
+    }
+
+    ngOnInit() { }
+
+    ngOnDestroy() { }
 }
