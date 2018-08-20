@@ -1,0 +1,15 @@
+<h1 mat-dialog-title>{{ 'Receipt:' }}</h1>
+<div mat-dialog-content>
+    <div *ngFor="let item of itemsWithTaxes">
+        {{ item.count + ' ' + item.description + ': ' + (item.totalCost | currency) }}
+    </div>
+    <mat-divider></mat-divider>
+    <div *ngIf="salesTax">{{ 'Sales Tax: ' + (salesTax | currency) }}</div>
+    <div *ngIf="totalCost">{{ 'Total: ' + (totalCost | currency) }}</div>
+</div>
+
+<div mat-dialog-actions fxLayout="row">
+    <div fxFlex="1 1 0"></div>
+    <button mat-button [mat-dialog-close]="false">Cancel</button>
+    <button mat-raised-button [mat-dialog-close]="true" cdkFocusInitial>Confirm</button>
+</div>
